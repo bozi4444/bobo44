@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: arial;   
+        }
+     .layout {
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .lay {
+        width: 600px;
+        line-height: 2;
+        text-align: left;
+    }
+    table{
+        border-collapse:collapse;
+        border-spacing: 0;
+    } 
+    td {
+        padding-left: 8px;
+    } 
+    .one tr {
+        border: 1px solid #ddd;
+    }
+    .apple tr:nth-of-type(odd),.book tr:nth-of-type(odd) {
+        background-color: #f1f1f1;
+   }
+   .h-row {
+       background-color: #4CAF50;
+       color: #fff;
+   }
+   .hh-row,.h-row {
+       font-weight: bold;
+   } 
+    </style>
+</head>
+<body>
+<div class="layout one">
+    <table class="lay three">
+        <thead>
+            <tr class="h-row">
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Points</td>
+            </tr>
+        </thead>
+        <tbody class="apple">
+            <tr class="a-row">
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr class="b-row">
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr class="c-row">
+                <td>Adam</td>
+                <td>Johnson</td>
+                <td>67</td>
+            </tr>
+            <tr class="d-row">
+                <td>Bo</td>
+                <td>Nilsson</td>
+                <td>50</td>
+            </tr>
+            <tr class="e-row">
+                <td>Mike</td>
+                <td>Ross</td>
+                <td>35</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="layout two">
+    <table class="lay four">
+            <thead class="hh-row">
+                <tr>
+                    <td>Frist Name</td>
+                    <td>Last Name</td>
+                    <td>Points</td>
+                </tr>
+            </thead>
+            <tbody class="book">
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>Adam</td>
+                    <td>Johnson</td>
+                    <td>67</td>
+                </tr>
+                <tr>
+                    <td>Bo</td>
+                    <td>Nilsson</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Mike</td>
+                    <td>Ross</td>
+                    <td>35</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</body>
+</html>
