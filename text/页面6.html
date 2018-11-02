@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="a.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_851142_jgc2o07qrzs.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_851142_3qku7t4u5kr.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    header {
+      position: relative;
+      min-height: 750px;
+      background: rgb(167, 43, 43) url(http://img02.tooopen.com/images/20141231/sy_78327074576.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    header .navbar {
+      width: 1100px;
+    }
+
+    header .logo {
+      color: #fed136;
+      font-size: 28px;
+      float: left;
+      margin-top: 28px;
+      margin-left: 14px;
+    }
+
+    header .nav {
+      float: right;
+      margin-top: 37px;
+    }
+
+    header .nav > li {
+      float: left;
+      margin-left: 15px;
+    }
+
+    header .nav a {
+      /* display: block; */
+      color: #fff;
+      padding: 6px;
+      background: #fed136;
+      border-radius: 4px;
+    }
+
+    header .nav a:hover {
+      background: red;
+      color: #ccc;
+    }
+
+    header .intro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+    }
+
+    header .intro > h1 {
+      font-size: 78px;
+      font-weight: bold;
+      margin-top: 10px;
+
+    }
+
+    header .intro > h3 {
+      font-size: 48px;
+    }
+
+    .services .iconfont {
+      font-size: 80px;
+      background: #fed136;
+      border-radius: 130px;
+    }
+    body::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1100px;
+      background: #ccc;
+      top: 1470px;
+      left: 0;
+      position: absolute;
+      z-index: -4;
+      opacity: 0.3;
+    }
+    section {
+      margin-top: 180px;
+      text-align: center;
+    }
+
+    section > h3 {
+      font-size: 40px;
+    }
+
+    section > p {
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    section > ul > p {
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    section > .services > li {
+      float: left;
+      width: 33.33%;
+      margin-top: 60px;
+      padding: 10px 13px;
+    }
+
+    section > ul p {
+      margin-top: 20px;
+      line-height: 2;
+    }
+
+    section .family > figure {
+      width: calc(33.33% - 20px);
+      float: left;
+      height: 390px;
+      margin: 10px;
+      margin-top: 45px;
+      background: #fff;
+
+    }
+
+    section .family a {
+      /* why */
+      display: block;
+      height: 290px;
+      /* position: relative; */
+    }
+
+    section .family img {
+      width: 100%;
+      height: 100%;
+    }
+
+    section .family figcaption {
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      margin-top: 20px;
+    }
+
+    section .family p {
+      font-style: italic;
+    }
+
+    section .family > figure {
+      background: #fff;
+      position: relative;
+    }
+    /* section .family a:hover::before {
+      content: '+';
+      background: #fed136;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      font-size: 105px;
+      text-align: center;
+      padding: 55px 0 125px;
+      font-weight: bold;
+      opacity: 0.9;
+    } */
+   
+    section .family .cover {
+      display: none;
+      background: #fed136;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 290px;
+      opacity: 0.9;
+    }
+    section .onebox {
+      display: none;
+      width: 49px;
+      height: 14px;
+      border-radius: 3px;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    section .twobox {
+      display: none;
+      width: 14px;
+      height: 49px;
+      border-radius: 3px;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+     section .family > figure:hover .cover {
+      display: block;
+     }   
+    section .family > figure:hover .onebox {
+      display: block;
+    }
+    section .family > figure:hover .twobox {
+      display: block;
+    }
+    
+    section .timeline img, 
+    section .timeline .img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      /* why */
+      border: 3px solid lightblue;
+    }
+    section .timeline > li:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    section .timeline > li {
+      margin-top: 100px;
+      position: relative;
+    }
+    section .timeline > li:nth-child(odd) {
+      padding-right: calc(50% - 80px);
+      text-align: right;
+    }
+    section .timeline > li:nth-child(odd) img {
+      float: right;
+      /* why */
+    }
+    section .timeline > li:nth-child(odd) dl {
+      margin-right: 180px;
+    }
+    section .timeline > li:nth-child(even) {
+      padding-left: calc(50% - 80px);
+      text-align: left;
+    }
+    section .timeline > li:nth-child(even) img {
+      float: left;
+    }
+    section .timeline > li:nth-child(even) dl {
+      margin-left: 180px;
+    }
+    section .timeline dt {
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+    }
+    section .timeline dd:nth-of-type(1) {
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+    }
+    section .timeline li::before {
+      content: '';
+      display: block;
+      height: 100px;
+      width: 3px;
+      position: absolute;
+      background: lightblue;
+      top: 100%;
+      left: 50%; 
+      margin-left: 0;
+      /* why */
+    }
+    section .timeline li:last-child::before {
+      height: 0;
+    }
+    section .timeline .img {
+      display: inline-block;
+      background: #fed136; 
+      padding: 50px 0;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+    }
+    section .team img {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+    section .team > li {
+      width: 33.33%;
+      margin-top: 80px;
+      float: left;
+    }
+    section .team h4 {
+      font-size: 18px;
+      color: black;
+      font-weight: bold;
+      margin-top: 19px;
+    }
+    section .team p {
+      margin-top: 0;
+    }
+    section .team .iconfont {
+      font-size: 35px;
+      background: black;
+      color: #fff;
+      border-radius: 50%;
+    }
+    section .team .iconfont:hover {
+      background: #fed136;
+    }
+    section .team a {
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+    section .last-two {
+      margin-top: 30px;
+      font-style: normal;
+    }
+    section .last-one {
+      margin-top: 7px;
+      font-style: normal;
+    }
+    body::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 800px;
+      background: #ccc;
+      top: 4180px;
+      left: 0;
+      position: absolute;
+      z-index: -4;
+      opacity: 0.3;
+    }
+    footer {
+      text-align: center;
+    }
+    footer .ad a {
+      float: left;
+      width:  25%;
+      height: 130px;
+      padding: 30px 40px;
+      margin-top: 90px;
+    }
+    footer .ad img {
+      width: 100%;
+      height: 100%;
+    }
+    footer .contant h3 {
+      margin-top: 60px;
+      font-size: 40px;
+      color: #fff;
+    }
+    footer .contant p {
+      font-style: italic;
+      margin-top: 10px;
+      color: #fff;
+    }
+    footer .basic-information {
+      margin-top: 80px;
+    }
+    footer ul {
+      float: left;
+      width: calc(50% - 10px);
+    }
+    footer ul input {
+       width: 100%;
+       height: 60px;
+       margin-top: 20px;
+       padding-left: 15px;
+       border-radius: 4px;
+       border: #fed136;
+    }
+    footer .message {
+      float: right;
+      width: calc(50% - 10px);
+      border: #fed136;
+    }
+    footer textarea {
+      width: 100%;
+      margin-top: 20px;
+      height: 220px;
+      padding-left: 15px;
+      padding-top: 20px; 
+      border-radius: 4px;
+    }
+    ::-webkit-input-placeholder {
+      font-weight: bold;
+      font-size: 15px;
+      font-family: Sans-serif;
+    }
+    footer .contant {
+      background: black url(https://tse1.mm.bing.net/th?id=OIP.vUjTTEx7DFJtOxGc87cpHgHaFj&pid=Api&w=800&h=600&rs=1&p=0) center center no-repeat;
+      background-size: cover; 
+      height: 600px;
+      padding-top: 2px;
+    }
+    footer button {
+      background: #fed136;
+      padding: 7px;
+      display: block;
+      margin: 20px auto 0;
+      width: 200px;
+      height: 60px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      border: #fed136 solid 2px;
+      border-radius: 3px;
+      opacity: 0.95;
+   }
+   footer button:hover {
+      opacity: 1;
+   }
+   footer .iconfont {
+      font-size: 35px;
+      background: black;
+      color: #fff;
+      border-radius: 50%;
+    }
+    footer .iconfont:hover {
+      background: #fed136;
+    }
+    footer .year {
+      margin-top: 20px;
+      background: #fff;
+    }
+    footer .year .bird {
+      margin-left: 300px;
+    }
+    footer .year .in {
+      margin-right: 300px;
+    }
+    footer .year .f {
+      margin: 0 10px;
+    }
+     footer .year .terms {
+      color: #fed136;
+    }
+    footer .year .terms:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="navbar clearfix">
+      <a class="logo">Start Project</a>
+      <ul class="nav">
+        <li>
+          <a href="#services">SERVICES</a>
+        </li>
+        <li>
+          <a href="#portfolio">PORTFOLIO</a>
+        </li>
+        <li>
+          <a href="#about">ABOUT</a>
+        </li>
+        <li>
+          <a href="#team">TEAM</a>
+        </li>
+        <li>
+          <a href="#contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+    <div class="intro layout">
+      <h3>Welcome To Our Studio!</h3>
+      <h1>IT'S NICE TO MEET YOU</h1>
+      <a class="button" href="#services">TELL ME MORE</a>
+    </div>
+  </header>
+  <main class="layout">
+    <section>
+      <h3 id="services">SERVICES</h3>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <ul class="services clearfix">
+        <li>
+          <span class="iconfont icon-chang "></span>
+          <h4>E-Commerce</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+            harum ex
+            magni, dicta impedit.</p>
+        </li>
+        <li>
+          <span class="iconfont icon-ji"></span>
+          <h4>Responsive Design</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+            harum ex
+            magni, dicta impedit.</p>
+        </li>
+        <li>
+          <span class="iconfont icon-yu"></span>
+          <h4>Web Security</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+            harum ex
+            magni, dicta impedit.</p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3 id="portfolio">PORTFOLIO</h3>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="family clearfix">
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>  
+          </div>
+          <a href="">
+            <img src="http://pic3.nipic.com/20090521/2669317_213656003_2.jpg" alt="">
+          </a>
+          <figcaption>Round Icons</figcaption>
+          <p>Graphic Design</p>
+        </figure>
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>
+          </div>
+          <a href="">
+            <img src="http://www.imagewa.com/PhotoPreview/162/162_17771.jpg" alt="">
+          </a>
+          <figcaption>Startup Framework</figcaption>
+          <p>Website Design</p>
+        </figure>
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>
+          </div>
+          <a href="">
+            <img src="http://pic2.bbzhi.com/meishibizhi/meishidacan/meishidacan_95549_10.jpg" alt="">
+          </a>
+          <figcaption>Treehouse</figcaption>
+          <p>Website Design</p>
+        </figure>
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>
+          </div>
+          <a href="">
+            <img src="http://i1.w.hjfile.cn/doc/201110/388604_1244377950jkZn42959.jpg" alt="">
+          </a>
+          <figcaption>Golden</figcaption>
+          <p>Website Design</p>
+        </figure>
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>
+          </div>
+          <a href="">
+            <img src="http://www.northguan-nsa.gov.tw/Att_FCK/images/ec/%E8%90%AC%E9%87%91-%E7%BE%8E%E9%A3%9F_02.jpg"
+              alt="">
+          </a>
+          <figcaption>Escape</figcaption>
+          <p>Website Design</p>
+        </figure>
+        <figure>
+          <div class="cover">
+            <span class="onebox"></span>
+            <span class="twobox"></span>
+          </div>
+          <a href="">
+            <img src="http://img.article.pchome.net/00/24/26/33/pic_lib/wm/001.jpg" alt="">
+          </a>
+          <figcaption>Dreams</figcaption>
+          <p>Website Design</p>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h3 id="about">ABOUT</h3>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <ul class="timeline layout">
+        <li>
+          <img src="http://pic15.nipic.com/20110616/180581_220828247196_2.jpg" alt="">
+          <dl>
+            <dt>2009-2011</dt>
+            <dd>Our Humble Beginnings</dd>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente,
+              totam reiciendis temporibus qui quibusdam,recusandae sit vero unde, sed, incidunt et ea quo dolore
+              laudantium consectetur!</dd>
+          </dl>
+        </li>
+        <li>
+          <img src="http://pic15.nipic.com/20110616/180581_220828618193_2.jpg" alt="">
+          <dl>
+            <dt>MARCH 2011</dt>
+            <dd>An Agency is Born</dd>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
+              reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+              incidunt et ea quo dolore laudantium consectetur!</dd>
+          </dl>
+        </li>
+        <li>
+          <img src="http://pic15.nipic.com/20110616/180581_220828536197_2.jpg" alt="">
+          <dl>
+            <dt>DECEMBER 2012</dt>
+            <dd>Transition to Full Service</dd>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
+              reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+              incidunt et ea quo dolore laudantium consectetur!</dd>
+          </dl>
+        </li>
+        <li>
+          <img src="http://pic15.nipic.com/20110616/180581_220828432195_2.jpg" alt="">
+          <dl>
+            <dt>JULY 2014</dt>
+            <dd>Phase Two Expansion</dd>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
+              reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+              incidunt et ea quo dolore laudantium consectetur!</dd>
+          </dl>
+        </li>
+        <li>
+          <span class="img">BE PAET OF OUR STORY!</span>
+        </li>
+    </section>
+    <section>
+      <h3 id="team">OUR AMAZING TEAM</h3>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <ul class="team clearfix">
+        <li>
+          <img src="https://tse4.mm.bing.net/th?id=OIP.vpi7fPGtr9GzQGNEfDzZzgHaE8&pid=Api&w=1578&h=1052&rs=1&p=0" alt="">
+          <h4>Kay Garland</h4>
+          <p>Lead Designer</p>
+          <a href=""><span class="iconfont icon-birdxiaoniao"></span></a>
+          <a href=""><span class="iconfont icon-F"></span></a>
+          <a href=""><span class="iconfont icon-in"></span></a>
+        </li>
+        <li>
+          <img src="http://js.people.com.cn/img/2013/05/24/1369372905_3841.jpg" alt="">
+          <h4>Larry Parker</h4>
+          <p>Lead Marketer</p>
+          <a href=""><span class="iconfont icon-birdxiaoniao"></span></a>
+          <a href=""><span class="iconfont icon-F"></span></a>
+          <a href=""><span class="iconfont icon-in"></span></a>
+        </li>
+        <li>
+          <img src="https://tse1.mm.bing.net/th?id=OIP.mqoZrGOj99_u75RdaqBekgAAAA&pid=Api  " alt="">
+          <h4>Diana Pertersen</h4>
+          <p>Lead Developer</p>
+          <a href=""><span class="iconfont icon-birdxiaoniao"></span></a>
+          <a href=""><span class="iconfont icon-F"></span></a>
+          <a href=""><span class="iconfont icon-in"></span></a>
+        </li>
+      </ul>
+      <p class="last-two">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis,
+        quos non quis ad</p>
+      <p class="last-one">perspiciatis, totam corporis ea, alias ut unde.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="ad layout clearfix">
+      <a href="" ;><img src="http://r1.ykimg.com/material/0A03/A1/201803/0322/3000650/1521718025426/0D0100005AB3936F1741791854335446.jpg"
+          alt=""></a>
+      <a href="" ;><img src="http://r1.ykimg.com/material/0A03/A1/201803/0306/3000650/1520329281430/0D0100005A9E62A59472061883363856.jpg"
+          alt=""></a>
+      <a href="" ;><img src="http://r1.ykimg.com/material/0A03/A1/201803/0322/3000650/1521718025426/0D0100005AB3936F1741791854335446.jpg"
+          alt=""></a>
+      <a href="" ;><img src="http://r1.ykimg.com/material/0A03/A1/201803/0306/3000650/1520329281430/0D0100005A9E62A59472061883363856.jpg"
+          alt=""></a>
+    </div>
+    <div class="contant">
+      <h3 id="contact">CONTACT US</h3>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="basic-information clearfix layout">
+        <form action="/aaa" method="post">
+          <ul class="left-information">
+            <li><input type="text" name="name" placeholder="YOUR NAME *"></li>
+            <li><input type="email" name="email" id="email" placeholder="YOUR EMAIL *"></li>
+            <li><input type="texr" name="phone" id="phone" placeholder="YOUR PHONE *"></li>
+          </ul>
+          <div class="message">
+            <textarea placeholder="YOUR MESSAGE *"></textarea>
+          </div>
+        </form>
+      </div>  
+      <button>SEND MESSAGE</button>
+    </div>
+      <div class="year">
+        <span>Copyright © Your Website 2014</span>
+        <a class="bird" href=""><span class="iconfont icon-birdxiaoniao"></span></a>
+        <a class="f" href=""><span class="iconfont icon-F"></span></a>
+        <a class="in" href=""><span class="iconfont icon-in"></span></a>
+        <a class="terms one" href="">Privacy Policy</a>
+        <a class="terms two" href="">Terms of Use</a>
+      </div>
+  </footer>
+</body>
+
+</html>
