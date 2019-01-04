@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      .box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.14);
+      }
+      .box.add {
+        background: black;
+        color: #fff;
+      }
+    
+    </style>
+   
+</head>
+<body>
+<div class="box">
+<h1>hello</h1>
+<p>jirengu</p>
+</div>
+<button id="add">add</button>
+<button id="remove">remove</button>
+<button id="toggle1">toggle1</button>
+<button id="toggle2">toggle1</button>
+<script>
+var boxpanel = document.querySelector('.box')
+
+document.querySelector('#add').onclick =
+function(){
+boxpanel.classList.add('add')
+}
+document.querySelector('#remove').onclick =
+function(){
+ boxpanel.classList.remove('add')
+}
+document.querySelector('#toggle1').onclick =
+function(){
+ if(boxpanel.classList.contains('add')){
+ boxpanel.classList.remove('add')
+ }else{
+  boxpanel.classList.add('add')
+}
+}
+document.querySelector('#toggle2').onclick =
+function(){
+ boxpanel.classList.toggle('add')
+}
+
+</script>
+</body>
+</html>
