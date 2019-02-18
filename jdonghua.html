@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+      width: 90px;
+      height: 100px;
+      border: solid 1px black;
+      background: red;
+      margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+    <button id="btn-box1">show</button>
+        <button id="btn-box2">hide</button>
+        <button id="btn-box3">fadeIn</button>
+        <button id="btn-box4">fadeOut</button>
+        <button id="btn-box5">slideDown</button>
+      <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+        <button id="btn-box6">slideUp</button>
+        <button id="action">回调</button>
+        <div class="container">
+          <div class="box">
+            HELLO
+          </div>
+        </div>
+        <script>
+       // 一些jq的动画效果。
+
+$('#btn-box1').on('click',function(){
+  $('.box').show('normal')
+})
+$('#btn-box2').on('click',function(){
+  $('.box').hide('normal')
+})
+// 如果show（），那么会立刻不见，立刻出现。改成show（400）则400毫秒
+// ，会慢一点消失。slow fast
+
+
+
+$('#btn-box3').on('click',function(){
+  $('.box').fadeIn(1000)
+})
+$('#btn-box4').on('click',function(){
+  $('.box').fadeOut(1000)
+})
+// 颜色慢慢淡下，至透明，时间可以自己定。slow fast
+
+
+
+$('#btn-box5').on('click',function(){
+  $('.box').slideDown('fast')
+})
+$('#btn-box6').on('click',function(){
+  $('.box').slideUp('slow',function(){
+  console.log('j')
+})
+  console.log('f')
+})
+// down拉下，拉上  slow fast
+// 动画是异步的，有动画队列，先执行动画，但动画还没出来
+// 这时候立刻执行console.log('f')，而把函数写里面，
+// 即动画执行完，再执行函数。
+
+$('#action').on('click',function(){
+   var $box = $('.box')
+//    $box.hide(1000,function(){
+//     $box.show(1000,function(){
+//       $box.fadeOut(1000,function(){
+//         $box.fadeIn(1000,function(){
+//           $box.slideUp(1000,function(){
+//            $box.slideDown(1000,function(){
+//             console.log('动画执行完毕')
+//            })
+//          })
+//         })
+//        })
+//      })
+//   })
+// })
+// 地狱回调 比较麻烦
+
+// 动画队列，比如有hide 有show，他们会进入一个动画队列中。先进去的先执行
+// 执行一个结束后，依旧返回这个对象。
+$box.hide(1000)
+    .show(1000)
+    .fadeOut()
+    .fadeIn()
+    .slideUp()
+    .slideDown(function(){
+     console.log('真的执行完毕')
+  })
+    console.log('执行完毕了吗？')
+})
+        </script>
+</body>
+</html>
