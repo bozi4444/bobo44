@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 876px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      padding-left: 13px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 26px;
+      color: rgb(90, 84, 84);
+      font-family: 'STSong';
+    }
+
+    ul>li {
+      list-style: none;
+      float: left;
+      width: 270px;
+      height: 300px;
+      border: solid 1px rgba(203, 199, 207, 0.747);
+      margin-left: 15px;
+      position: relative;
+    }
+
+    ul:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    ul img {
+      padding: 20px 35px 5px;
+    }
+
+    ul p {
+      margin-left: 34px;
+      font-size: 15px;
+      color: rgb(90, 84, 84);
+      font-family: 'STSong';
+    }
+
+    ul .price {
+      color: red;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-left: 15px;
+      padding: 10px 12px;
+      border: solid 1px red;
+      border-radius: 3px;
+      color: red;
+      background: #fff;
+      font-size: 15px;
+      font-family: 'STSong';
+      margin-top: 18px;
+    }
+
+    ul .Cover {
+      content: '';
+      width: 270px;
+      height: 300px;
+      background: rgb(90, 87, 87);
+      opacity: 0.5;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    ul .Delete {
+      padding: 10px 12px;
+      border: solid 1px red;
+      border-radius: 3px;
+      color: red;
+      background: #fff;
+      font-size: 15px;
+      font-family: 'STSong';
+      position: absolute;
+      top: 50%;
+      left: 88px;
+      display: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>珠宝首饰</h1>
+    <ul>
+      <li>
+        <div class="Cover"></div>
+        <img src="https://picsum.photos/200/200/?image=1" alt="">
+        <p class="Name">藏美千足金</p>
+        <p class="price">￥1699.00</p>
+        <button class="Delete">删除</button>
+      </li>
+      <li>
+        <div class="Cover"></div>
+        <img src="https://picsum.photos/200/200/?image=2" alt="">
+        <p class="Name">和田玉</p>
+        <p class="price">￥1699.00</p>
+        <button class="Delete">删除</button>
+      </li>
+      <li>
+        <div class="Cover"></div>
+        <img src="https://picsum.photos/200/200/?image=3" alt="">
+        <p class="Name">路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+        <button class="Delete">删除</button>
+      </li>
+    </ul>
+    <button class="add">添加</button>
+    <button class="complie">编辑</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script>
+
+
+    function Newsrc() {
+      var bb = 1 + Math.floor(Math.random() * 98)
+      var newsrc = 'https://picsum.photos/200/200/?image=' + bb
+      return newsrc
+    }
+    function Newprice() {
+      var bb = 1 + Math.floor(Math.random() * 98)
+      var newprice = '￥' + bb
+      return newprice
+    }
+
+
+    $('.container .add').click(function () {
+      if ($('ul .Delete').css('display') !== 'none') {
+        $('ul .Delete').css('display', 'none')
+        $('ul .Cover').css('display', 'none')
+      }
+      for (var i = -3; i < 0; i++) {
+        var el = $('<li><div class="Cover"></div><img src="https://picsum.photos/200/200/?image=3" alt=""><p class="Name">路路通吊坠</p><p class="price">￥1699.00</p><button class="Delete">删除</button></li>')
+        el.find('.Name').text('珂兰 黄金手 侯哥款').parents('li').appendTo('ul')
+        $('ul .price').eq(-1).text(Newprice()).siblings('img').attr('src', Newsrc())
+      }
+    })
+
+    $('.container .complie').click(function () {
+      if ($('ul .Delete').css('display') === 'none') {
+        $('ul .Delete').css('display', 'block')
+        $('ul .Cover').css('display', 'block')
+      } else {
+        $('ul .Delete').css('display', 'none')
+        $('ul .Cover').css('display', 'none')
+      }
+    })
+
+    $('ul').on('click', 'button', function () {
+      $(this).parents('li').remove()
+    })
+  </script>
+</body>
+
+</html>
