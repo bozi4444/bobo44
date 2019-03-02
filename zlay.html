@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    
+    .container:after{
+     content: '';
+     display: block;
+     clear: both;
+    }
+   /* h1{
+    clear: both;
+    } */
+    /*放在一堆图中，图片是浮动的，所以他的高度会顶到最上面。*/
+    
+    .container img {
+     float: left;
+     width: 50%;
+     height: 200px;
+    }
+
+
+  </style>
+  
+<body>
+  <div class="container">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://www.imagewa.com/PhotoPreview/161/161_17257.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://www.imagewa.com/PhotoPreview/161/161_17257.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://img15.3lian.com/2015/f3/16/d/49.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="https://tse3.mm.bing.net/th?id=OIP.dWN6-dOB-ZmLBMiFAAjdsQHaFN&pid=Api">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://img1.3lian.com/2015/w2/31/d/3.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://pic27.nipic.com/20130329/8019543_154116306000_2.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://file06.16sucai.com/2016/0622/673d6e9a9df754e3e67209a48ba47330.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://img1.3lian.com/2015/a1/79/d/49.jpg">
+     <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://www.imagewa.com/PhotoPreview/161/161_17257.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="https://tse3.mm.bing.net/th?id=OIP.dWN6-dOB-ZmLBMiFAAjdsQHaFN&pid=Api">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://img1.3lian.com/2015/w2/31/d/3.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://pic27.nipic.com/20130329/8019543_154116306000_2.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://file06.16sucai.com/2016/0622/673d6e9a9df754e3e67209a48ba47330.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://img1.3lian.com/2015/a1/79/d/49.jpg">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.Q8DUbwbCAfeCfuHLvUN7ewAAAA&pid=Api" 
+         alt="http://www.imagewa.com/PhotoPreview/161/161_17257.jpg">
+
+
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+  <!-- 想要慢慢出来的效果，加setTimeout -->
+  
+   start()
+  $(window).on('scroll',function(){
+    start()
+  })
+  
+  function start(){
+    $('.container img').not('[data-isLoaded]').each(function(){
+      var $node = $(this)
+      if(isShow($(this))){
+         setTimeout(function(){
+           loadImg($node)
+         },500)
+      }
+    })  
+  }
+  
+  
+  function isShow($node){
+    return $node.offset().top <= $(window).height() + $(window).scrollTop()
+  }
+  function loadImg($img){
+    $img.attr('src',$img.attr('alt'))
+    $img.attr('data-isLoaded',1)
+  }
+ 
+  
+  
+  
+
+
+
+</script>
+
+</html>

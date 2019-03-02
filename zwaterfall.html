@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <title>JS Bin</title>
+    <style>
+      .waterfall {
+        /* height: 700px; */
+       /*max-width: 600px;*/
+       /*margin: 0 auto; */
+      }
+      .waterfall img{
+       position: absolute;
+       /* 要用js控制他的位置，所以要绝对定位 */
+       width: 100px;
+       margin: 10px;
+       transition: all .4s;
+        
+      }
+    </style>
+  </head>
+  <body>
+  <div class="waterfall">
+   <img src="https://via.placeholder.com/100x100" alt="300*100">
+    <img src="https://via.placeholder.com/100x70" alt="300*70">
+    <img src="https://via.placeholder.com/100x150" alt="300*150">
+    <img src="https://via.placeholder.com/100x250" alt="300*250">
+    <img src="https://via.placeholder.com/100x80" alt="300*80">
+    <img src="https://via.placeholder.com/100x90" alt="300*90">
+    <img src="https://via.placeholder.com/100x120" alt="300*120">
+    <img src="https://via.placeholder.com/100x210" alt="300*210">
+    <img src="https://via.placeholder.com/100x230" alt="300*230">
+  
+   <!-- .outerWidth(true)时一个元素的宽度，包括他的外边距-->
+  </div>
+    <script>
+     
+        /*var waterfall = {
+        init: function(){
+        
+          this.colHeightArray = []
+          this.imgWidth = $('.waterfall img').outerWidth(true)
+          this.colCount = Math.floor($('.waterfall').width()/this.imgWidth)
+          for(var i=0; i<this.colCount;i++){
+           this.colHeightArray[i] = 0
+          }
+          this.bind()
+        },
+          
+        bind: function(){
+          var _this = this
+          $('.waterfall img').on('load',function(){
+            _this.layout($(this))
+            console.log($(this))
+         })
+          $(window).on('resize',function(){
+               $('.waterfall img').each(function(){
+               _this.layout($(this))
+               })  
+          })                       
+        },
+          
+        layout: function($node){
+          console.log(this)
+          var minValue = this.colHeightArray[0]
+          var minIndex = 0
+          for(var i=0; i<this.colCount;  i++){
+            if(this.colHeightArray[i] < minValue){
+              minValue = this.colHeightArray[i]
+              minIndex = i
+            }
+          }
+          $node.css({
+           left: this.imgWidth * minIndex,
+           top: minValue
+          })
+          this.colHeightArray[minIndex] +=  
+           $node.outerHeight(true)
+         }
+       }
+     
+        waterfall.init()*/
+       
+  <!--     喔时分割线------------------------------------------------------------------------ -->
+       
+      
+      var colCount
+      var colHeightArray = []
+      var imgWidth = $('.waterfall img').outerWidth(true)
+      colCount = Math.floor($('.waterfall').width()/imgWidth)
+     
+    
+      for(var i=0;i<colCount; i++){
+        colHeightArray[i] = 0
+      }
+  
+      $('.waterfall img').on('load',function(){
+      var minValue = colHeightArray[0]
+      var minIndex = 0
+       for(var i=0;i<colCount; i++){
+         if(colHeightArray[i] < minValue){
+          minValue = colHeightArray[i]
+          minIndex = i
+         }
+       }
+       console.log(minIndex)
+       $(this).css({
+        left: imgWidth * minIndex,
+        top: minValue
+       })
+       colHeightArray[minIndex] +=  
+         $(this).outerHeight(true)
+     })
+       
+       <!-- 当窗口发生改变时，布局也会变化 -->
+    $(window).on('resize',function(){
+      colHeightArray = []
+      colCount = Math.floor($('.waterfall').width()/imgWidth)
+       for(var i=0;i<colCount; i++){
+        colHeightArray[i] = 0
+      }
+      $('.waterfall img').each(function(){
+      var minValue = colHeightArray[0]
+      var minIndex = 0
+       for(var i=0;i<colCount; i++){
+         if(colHeightArray[i] < minValue){
+          minValue = colHeightArray[i]
+          minIndex = i
+         }
+       }
+       console.log(minIndex)
+       $(this).css({
+        left: imgWidth * minIndex,
+        top: minValue
+       })
+       colHeightArray[minIndex] +=  
+         $(this).outerHeight(true)
+     })
+    })
+      
+      
+      
+    </script>
+    
+    
+    
+  
+  
+</body>
+</html>
