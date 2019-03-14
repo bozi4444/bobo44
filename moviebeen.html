@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)http://book.jirengu.com/jirengu-inc/js-works/projects/doubanmovie/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./豆瓣电影_files/jquery.min.js.下载"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>豆瓣电影</title>
+  <link rel="stylesheet" href="./豆瓣电影_files/font_440195_fw8hsnrso53wstt9.css">
+ <meta name="referrer" content="never">
+  <style>
+  
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    html,body,main{
+      height: 100%;
+      position: relative;
+    }
+    body{
+      font-size: 12px;
+      line-height: 1.2;
+    }
+    main>section {
+      height: calc(100% - 45px);
+      padding: 10px;
+      background: #fff;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch; /*ios 上增加弹性*/
+    }
+    main>section{
+      display: none;
+    }
+    main section:first-child{
+      display: block;
+    }
+    .item {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    .item>a{
+      display: block;
+      display: flex;
+    }
+    .item .cover,
+    .item .cover img{
+      width: 70px;
+    }
+    .item .detail {
+      flex: 1;
+      padding-left: 10px;
+    }
+    .item .detail h2{
+      font-size: 16px;
+    }
+    .item .detail .extra{
+      color: #999;
+      margin-top: 4px;
+    }
+    .item .detail .score{
+      color: #FF5722;
+    }
+    .loading {
+      text-align: center;
+      padding-top: 10px;
+      display: none;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg);  }
+    }
+    #search {
+      height: calc(100% - 45px);
+    }
+    section .search-area{
+      color: #333;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+    section .search-area input {
+      width: calc(100% - 50px);
+      padding: 8px;
+      background-color: #eee;
+      border: none;
+      border-radius: 2px;
+      box-shadow: none;
+      outline: none;
+    }
+    section .search-area .button{
+      position: absolute;
+      right: 0;
+      padding: 8px 10px;
+      background: #FF5722;
+      color: #fff;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .loading .iconfont{
+      display: inline-block;
+      animation: 1s rotate linear infinite;
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      height: 45px;
+      width: 100%;
+      border-top: 1px solid #ccc;
+      background-color: #fff;
+      display: flex;
+    }
+    footer>div {
+      flex: 1;
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+      padding-top: 6px;
+    }
+    footer .active{
+      color: #FF5722;
+    }
+    footer>div>span{
+      display: block;
+    } 
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top250">
+      <div class="container">       
+<!--         <div class="item">
+          <a href="#">
+            <div class="cover">
+              <img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png" alt="">
+            </div>
+            <div class="detail">
+              <h2>霸王别姬</h2>
+              <div class="extra"><span class="score">9.3分</span> / 1000收藏</div>
+              <div class="extra">1994 / 剧情、爱情</div>
+              <div class="extra">导演: 张艺谋</div>
+              <div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>
+            </div>
+          </a>
+        </div> -->
+      <div class="item">            <a href="https://movie.douban.com/subject/1292052/">              <div class="cover">                <img src="./豆瓣电影_files/p480747492.jpg" alt="">              </div>              <div class="detail">                <h2>肖申克的救赎</h2>                <div class="extra">1994 / 犯罪、剧情</div>                <div class="extra">导演：弗兰克·德拉邦特</div>                <div class="extra">主演：蒂姆·罗宾斯、摩根·弗里曼、鲍勃·冈顿</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1291546/">              <div class="cover">                <img src="./豆瓣电影_files/p1910813120.jpg" alt="">              </div>              <div class="detail">                <h2>霸王别姬</h2>                <div class="extra">1993 / 剧情、爱情、同性</div>                <div class="extra">导演：陈凯歌</div>                <div class="extra">主演：张国荣、张丰毅、巩俐</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1295644/">              <div class="cover">                <img src="./豆瓣电影_files/p511118051.jpg" alt="">              </div>              <div class="detail">                <h2>这个杀手不太冷</h2>                <div class="extra">1994 / 剧情、动作、犯罪</div>                <div class="extra">导演：吕克·贝松</div>                <div class="extra">主演：让·雷诺、娜塔莉·波特曼、加里·奥德曼</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1292720/">              <div class="cover">                <img src="./豆瓣电影_files/p510876377.jpg" alt="">              </div>              <div class="detail">                <h2>阿甘正传</h2>                <div class="extra">1994 / 剧情、爱情</div>                <div class="extra">导演：罗伯特·泽米吉斯</div>                <div class="extra">主演：汤姆·汉克斯、罗宾·怀特、加里·西尼斯</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1292063/">              <div class="cover">                <img src="./豆瓣电影_files/p510861873.jpg" alt="">              </div>              <div class="detail">                <h2>美丽人生</h2>                <div class="extra">1997 / 剧情、喜剧、爱情</div>                <div class="extra">导演：罗伯托·贝尼尼</div>                <div class="extra">主演：罗伯托·贝尼尼、尼可莱塔·布拉斯基、乔治·坎塔里尼</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1292722/">              <div class="cover">                <img src="./豆瓣电影_files/p457760035.jpg" alt="">              </div>              <div class="detail">                <h2>泰坦尼克号</h2>                <div class="extra">1997 / 剧情、爱情、灾难</div>                <div class="extra">导演：詹姆斯·卡梅隆</div>                <div class="extra">主演：莱昂纳多·迪卡普里奥、凯特·温丝莱特、比利·赞恩</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1291561/">              <div class="cover">                <img src="./豆瓣电影_files/p1606727862.jpg" alt="">              </div>              <div class="detail">                <h2>千与千寻</h2>                <div class="extra">2001 / 剧情、动画、奇幻</div>                <div class="extra">导演：宫崎骏</div>                <div class="extra">主演：柊瑠美、入野自由、夏木真理</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1295124/">              <div class="cover">                <img src="./豆瓣电影_files/p492406163.jpg" alt="">              </div>              <div class="detail">                <h2>辛德勒的名单</h2>                <div class="extra">1993 / 剧情、历史、战争</div>                <div class="extra">导演：史蒂文·斯皮尔伯格</div>                <div class="extra">主演：连姆·尼森、本·金斯利、拉尔夫·费因斯</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/3541415/">              <div class="cover">                <img src="./豆瓣电影_files/p513344864.jpg" alt="">              </div>              <div class="detail">                <h2>盗梦空间</h2>                <div class="extra">2010 / 剧情、科幻、悬疑</div>                <div class="extra">导演：克里斯托弗·诺兰</div>                <div class="extra">主演：莱昂纳多·迪卡普里奥、约瑟夫·高登-莱维特、艾伦·佩吉</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/3011091/">              <div class="cover">                <img src="./豆瓣电影_files/p524964016.jpg" alt="">              </div>              <div class="detail">                <h2>忠犬八公的故事</h2>                <div class="extra">2009 / 剧情</div>                <div class="extra">导演：拉斯·霍尔斯道姆</div>                <div class="extra">主演：理查·基尔、萨拉·罗默尔、琼·艾伦</div>                <div class="extra"></div>              </div>            </a>          </div></div>
+      <div class="loading" style="display: none;"><span class="iconfont icon-loading"></span></div>
+    </section>
+    <section id="beimei">
+      <div class="container">
+      
+      <div class="item">            <a href="https://movie.douban.com/subject/19899707/">              <div class="cover">                <img src="./豆瓣电影_files/p2546335362.jpg" alt="">              </div>              <div class="detail">                <h2>驯龙高手3</h2>                <div class="extra">2019 / 动画、奇幻、冒险</div>                <div class="extra">导演：迪恩·德布洛斯</div>                <div class="extra">主演：杰伊·巴鲁切尔、亚美莉卡·费雷拉、凯特·布兰切特</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/1652592/">              <div class="cover">                <img src="./豆瓣电影_files/p2544987866.jpg" alt="">              </div>              <div class="detail">                <h2>阿丽塔：战斗天使</h2>                <div class="extra">2019 / 动作、科幻、冒险</div>                <div class="extra">导演：罗伯特·罗德里格兹</div>                <div class="extra">主演：罗莎·萨拉查、克里斯托弗·沃尔兹、基恩·约翰逊</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/25833233/">              <div class="cover">                <img src="./豆瓣电影_files/p2524021875.jpg" alt="">              </div>              <div class="detail">                <h2>乐高大电影2</h2>                <div class="extra">2019 / 喜剧、动画、冒险</div>                <div class="extra">导演：迈克·米切尔</div>                <div class="extra">主演：克里斯·帕拉特、伊丽莎白·班克斯、威尔·阿奈特</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/26971054/">              <div class="cover">                <img src="./豆瓣电影_files/p2542526600.jpg" alt="">              </div>              <div class="detail">                <h2>为家而战</h2>                <div class="extra">2019 / 剧情、喜剧、传记</div>                <div class="extra">导演：斯戴芬·莫昌特</div>                <div class="extra">主演：道恩·强森、弗洛伦斯·皮尤、琳娜·海蒂</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/27002812/">              <div class="cover">                <img src="./豆瓣电影_files/p2546947022.jpg" alt="">              </div>              <div class="detail">                <h2>难道不浪漫</h2>                <div class="extra">2019 / 喜剧、爱情、奇幻</div>                <div class="extra">导演：托德·施特劳斯-舒尔森</div>                <div class="extra">主演：蕾蓓尔·威尔森、利亚姆·海姆斯沃斯、亚当·德维尼</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/27199332/">              <div class="cover">                <img src="./豆瓣电影_files/p2540707600.jpg" alt="">              </div>              <div class="detail">                <h2>倾听男人心</h2>                <div class="extra">2019 / 喜剧、爱情、奇幻</div>                <div class="extra">导演：亚当·山克曼</div>                <div class="extra">主演：塔拉吉·P·汉森、克莉丝汀·莱德洛、乔什·布雷纳</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/30209818/">              <div class="cover">                <img src="./豆瓣电影_files/p2537451675.jpg" alt="">              </div>              <div class="detail">                <h2>忌日快乐2</h2>                <div class="extra">2019 / 悬疑、惊悚、恐怖</div>                <div class="extra">导演：克里斯托弗·兰登</div>                <div class="extra">主演：杰西卡·罗德、伊瑟尔·布罗萨德、露比·莫迪恩</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/26810068/">              <div class="cover">                <img src="./豆瓣电影_files/p2543118550.jpg" alt="">              </div>              <div class="detail">                <h2>冷血追击</h2>                <div class="extra">2019 / 剧情、动作、惊悚</div>                <div class="extra">导演：汉斯·皮特·莫郎</div>                <div class="extra">主演：连姆·尼森、劳拉·邓恩、米切尔·理查德森</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/26061679/">              <div class="cover">                <img src="./豆瓣电影_files/p2535899868.jpg" alt="">              </div>              <div class="detail">                <h2>上行</h2>                <div class="extra">2017 / 剧情、喜剧</div>                <div class="extra">导演：尼尔·博格</div>                <div class="extra">主演：凯文·哈特、布莱恩·科兰斯顿、妮可·基德曼</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/30415959/">              <div class="cover">                <img src="./豆瓣电影_files/p2543881874.jpg" alt="">              </div>              <div class="detail">                <h2>赢得比赛</h2>                <div class="extra">2019 / 剧情、运动、家庭</div>                <div class="extra">导演：克里斯·道林</div>                <div class="extra">主演：麦凯尔泰·威廉逊、弗兰西丝·费舍、克里斯托弗·普拉哈</div>                <div class="extra"></div>              </div>            </a>          </div><div class="item">            <a href="https://movie.douban.com/subject/27060077/">              <div class="cover">                <img src="./豆瓣电影_files/p2549177902.jpg" alt="">              </div>              <div class="detail">                <h2>绿皮书</h2>                <div class="extra">2018 / 剧情、喜剧、传记</div>                <div class="extra">导演：彼得·法雷里</div>                <div class="extra">主演：维果·莫腾森、马赫沙拉·阿里、琳达·卡德里尼</div>                <div class="extra"></div>              </div>            </a>          </div></div>
+      <div class="loading"><span class="iconfont icon-loading"></span></div>
+    </section>
+    <section id="search">
+      <div class="wrap">
+        <div class="search-area">
+          <input type="text" placeholder="搜索电影"><span class="button"> 搜索</span>
+        </div>
+        <div class="search-result">
+          <div class="container"></div>
+          <div class="loading"><span class="iconfont icon-loading"></span> </div>
+        </div>        
+      </div>
+
+    </section>
+  </main>
+  <footer>
+    <div class="active">
+      <span class="iconfont icon-paihang"></span><span>Top250</span>
+    </div>
+    <div>
+      <span class="iconfont icon-beimei"></span><span>北美</span>
+    </div>
+    <div>
+      <span class="iconfont icon-search"></span><span>搜索</span>
+    </div>
+ 
+  </footer>
+  
+  <script>
+
+    var Helpers = {
+      isToBottom: function($viewport, $content) {
+        return $viewport.height() + $viewport.scrollTop() + 30 > $content.height() 
+      },
+
+      createNode: function(subject){
+          var $node = $('<div class="item">\
+            <a href="#">\
+              <div class="cover">\
+                <img src="" alt="">\
+              </div>\
+              <div class="detail">\
+                <h2></h2>\
+                <div class="extra"><span class="score"></span> / <span class="collection"></span>收藏</div>\
+                <div class="extra"></div>\
+                <div class="extra"></div>\
+                <div class="extra"></div>\
+              </div>\
+            </a>\
+          </div>')
+          $node.find('a').attr('href', subject.alt)    
+          $node.find('.cover img').attr('src', subject.images.small)
+          $node.find('.detail h2').text(subject.title)   
+          $node.find('.detail .score').text(subject.rating.average)  
+          $node.find('.detail .collection').text(subject.collect_count)  
+          $node.find('.detail .extra').eq(0).text(subject.year + ' / ' + subject.genres.join('、')) 
+          $node.find('.detail .extra').eq(1).text('导演：' + subject.directors.map(v=>v.name).join('、'))  
+          $node.find('.detail .extra').eq(2).text('主演：' + subject.casts.map(v=>v.name).join('、'))    
+          //console.log(_this.$container)
+          return $node
+      }
+    }
+
+
+    var Paging = {
+      init: function(){
+        this.$tabs = $('footer>div')
+        this.$pages = $('main>section')
+        this.bind()
+      },
+      bind: function(){
+        var _this = this
+        this.$tabs.on('click', function(){
+          var $this = $(this)
+          var index = $this.index()
+          $this.addClass('active')
+            .siblings().removeClass('active')
+          _this.$pages.eq(index).fadeIn().siblings().fadeOut()
+        })
+      }
+    }
+
+    var Top250 = {
+      init: function(){
+        var _this = this
+        this.$container = $('#top250')
+        this.$content = this.$container.find('.container')
+        this.page = 0
+        this.count = 10
+        this.isFinshed = false
+        this.isLoading = false
+        this.bind()
+        this.getData(function(data){
+          _this.renderData(data)
+          _this.page++
+        })
+      },
+      bind: function(){
+        var _this = this
+
+        this.$container.on('scroll', function(){
+          console.log(_this.isLoading)
+          if(Helpers.isToBottom(_this.$container, _this.$content) && !_this.isFinshed && !_this.isLoading){
+            console.log('to bottom')
+            _this.getData(function(data){
+              _this.renderData(data)
+              _this.page++
+              if(_this.page * _this.count > data.total) {
+                _this.isFinshed = true
+              }
+            })
+          }
+          // if(_this.clock){
+          //   clearTimeout(_this.clock)
+          // }
+          // _this.clock = setTimeout(function(){
+          //   console.log('scroll...')
+
+          // }, 100)
+        })
+      },
+      getData: function(callback){
+        var _this = this
+        this.isLoading = true
+        this.$container.find('.loading').show(400)
+        $.ajax({
+          url: '//api.douban.com/v2/movie/top250',
+          data: {
+            start: this.count*this.page,
+            count: this.count
+          },
+          dataType: 'jsonp'
+        }).done(function(ret){
+          _this.isLoading = false
+          _this.$container.find('.loading').hide(400)
+          callback(ret)
+        })
+      },
+      renderData(data){
+        var _this = this
+        data.subjects.forEach(function(item){
+          var $node = Helpers.createNode(item)
+          _this.$content.append($node)    
+        })
+      }
+
+    }
+
+    var UsBoard = {
+      init: function(){
+        var _this = this
+        this.$container = $('#beimei')
+        this.$content = this.$container.find('.container')
+        this.getData(function(data){
+          _this.renderData(data)
+        })
+      },
+      getData: function(callback){
+        $.ajax({
+          url: '//api.douban.com/v2/movie/us_box',
+          data: {
+            start: 0,
+            count: 10
+          },
+          dataType: 'jsonp'
+        }).done(function(ret){
+          callback(ret)
+        })
+      },
+      renderData(data){
+        var _this = this
+        console.log(data)
+        data.subjects.forEach(function(item){
+          var $node = Helpers.createNode(item.subject)  
+          _this.$content.append($node)    
+        })
+      }
+
+    }
+
+    var Search = {
+      init: function() {
+        this.page = 0
+        this.count = 10
+        this.isFinshed = false
+        this.isLoading = false
+        this.$container = $('#search')
+        this.$content = this.$container.find('.container')
+        this.bind()
+      },
+
+      bind: function() {
+        var _this = this
+        this.$container.find('.search-area .button').on('click', function(){
+          console.log('click ')
+          _this.getData(function(data){
+            console.log(data)
+            _this.renderData(data)
+          })
+        })
+        console.log(this.$container.find('.search-area input'))
+        this.$container.find('.search-area input').on('keyup', function(e){
+          if(e.key === 'Enter') {
+            _this.getData(function(data){
+            _this.renderData(data)
+          })
+          }
+        })
+
+        this.$container.on('scroll', function(){
+          console.log(_this.isLoading)
+          if(Helpers.isToBottom(_this.$container, _this.$container.find('.wrap')) && !_this.isFinshed && !_this.isLoading){
+            console.log('to bottom')
+            _this.getData(function(data){
+              _this.renderData(data)
+              _this.page++
+              if(_this.page * _this.count > data.total) {
+                _this.isFinshed = true
+              }
+            })
+          }
+        })
+      },
+
+      getData: function(callback){
+        var _this = this
+        var keyword = this.$container.find('.search-area input').val()
+        this.isLoading = true
+        $.ajax({
+          url: 'http://api.douban.com/v2/movie/search',
+          data: {
+            q: keyword
+          },
+          dataType: 'jsonp'
+        }).done(function(ret){
+          _this.isLoading = false
+          callback(ret)
+        })
+      },
+
+      renderData(data){
+        var _this = this
+        data.subjects.forEach(function(item){
+          var $node = Helpers.createNode(item)
+          _this.$content.append($node)    
+        })
+      }
+    }
+
+
+
+
+    var App = {
+      init: function(){
+        Paging.init()
+        Top250.init()
+        UsBoard.init()
+        Search.init()
+      }
+    }
+
+    App.init()
+
+    
+  </script>
+
+</body></html>
