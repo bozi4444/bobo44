@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <style>
+      *{
+  margin: 0;
+  padding: 0;
+}
+
+.panel {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+
+.btn>li {
+  float: left;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 6px 32.46px;
+}
+.btn >.tab-three{
+ border-right: none;
+}
+
+.btn {
+ width: 300px;
+ height: 50px;
+ list-style: none;
+ content: '';
+ display: block;
+ clear: both;
+}
+
+.btn>.active{
+ background: #ccc;
+}
+
+.panel>.container {
+  width: 300px;
+  height: 250px;
+}
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <ul class="btn">
+          <li class="tab-one active">tab1</li>
+          <li class="tab-tow">tab2</li>
+          <li class="tab-three">tab3</li>
+        </ul>
+        <div class="container">
+        </div>
+      
+        <div class="panel">
+        <ul class="btn">
+          <li class="tab-one active">tab1</li>
+          <li class="tab-tow">tab2</li>
+          <li class="tab-three">tab3</li>
+        </ul>
+        <div class="container">
+        </div>
+      </div>
+<script>
+function controlPan ($ct){
+  this.init($ct)
+  this.bind()
+}
+
+controlPan.prototype = {
+  init: function($ct){
+    this.$ct = $ct
+    this.$btn = this.$ct.find('.btn')
+    this.$container = this.$ct.find('.container')
+    this.$container.text('内容'+1)
+  },
+  
+  bind: function(){
+    var _this = this
+    this.$btn.on('click','li',function(){
+      $(this).addClass('active').siblings('').removeClass('active')
+      _this.$container.text('内容'+ ($(this).index()+1))
+    })
+    
+
+  }
+
+}
+
+var a = new controlPan($('.panel').eq(0))
+var b = new controlPan($('.panel').eq(1))
+</script>
+</body>
+</html>
